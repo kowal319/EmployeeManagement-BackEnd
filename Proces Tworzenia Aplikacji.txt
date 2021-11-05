@@ -1,0 +1,23 @@
+Tworzenie employeee Management
+1. Zalezonosci, web, mysql, jpa
+2. Package w main.java - nazwac "model"
+3. Stworzenie w model klasy Employee z atrybutami pryvatnymi, do tego klasa implementuje Serializable(pomaga to w bazie danych, zeby odrozniac rozne Stringi)
+4. Dodanie @Entity nad nazwa klasy i teraz dajemy co jest primary key, czyli nad private Id dodajemy " @Id" z java persistance
+5. Ponizej @Id dodanie @GeneratedValue(strategy = GenerationType.AUTO)
+6. Dodanie nizej     @Column(nullable = false, updatable = false) 
+7. Dodanie nad EmployeeCode tez tego     @Column(nullable = false, updatable = false)
+8. Generate Contructor, getter adn Setter, toString.
+9. Go to application properties, jest to w resources, tutaj zapisujemy: 
+	# MySql Configuration
+	spring.datasource.url=jdbc:mysql://localhost:3306/employeemanager
+	spring.datasource.username=root
+	spring.datasource.password=root
+	spring.jpa.show-sql=true
+	spring.jpa.hibernate.ddl-auto=update   -- znaczy to ze utworzy sie raz a potem bedzie sie akualizaowac, mozna np wybrac create wtedy bedzie sie tworzyc za kazdym razem taka baza danych, sa tam tez inne opcje jak cos
+	spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+10. Uruchomic aplikacje w klasie main - powinno wyskoczyc ze nie ma database takiej utworzonej jak uruchamiam 1 raz
+11. Stworzyc data baze danych w mysql command line ( create database employeemanager; ) i jeszcze raz uruchomic program
+
+
+
+
